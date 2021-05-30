@@ -1,5 +1,5 @@
 const express = require("express");
-const dotEnv = require("dotenv");
+const dotenv = require("dotenv");
 const logger = require("./middleware/logger");
 const morgan = require("morgan");
 const connectDB = require("./config/db");
@@ -9,7 +9,7 @@ const errorHandler = require("./middleware/error");
 const bootcamps = require("./routes/bootcamp");
 
 // Load config file
-dotEnv.config({ path: "./config/config.env" });
+dotenv.config({ path: "./config/config.env" });
 
 // Connect to database
 connectDB();
@@ -18,6 +18,7 @@ const app = express();
 // Body parser
 app.use(express.json());
 // Dev logging Middleware
+
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
